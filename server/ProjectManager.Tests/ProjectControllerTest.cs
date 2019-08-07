@@ -35,6 +35,30 @@ namespace ProjectManager.Test
                 Priority = 3
             });
             context.Projects = projects;
+            var tasks = new TestDbSet<DAC.Task>();
+            tasks.Add(new DAC.Task()
+            {
+                Project_ID = 12345,
+                Parent_ID = 12345,
+                Task_ID = 12345,
+                Task_Name = "TEST",
+                Priority = 1,
+                Status = 1,
+                Start_Date = DateTime.Now,
+                End_Date = DateTime.Now.AddDays(5)
+            });
+            tasks.Add(new DAC.Task()
+            {
+                Project_ID = 12345,
+                Parent_ID = 123,
+                Task_ID = 123,
+                Task_Name = "TEST",
+                Priority = 1,
+                Status = 1,
+                Start_Date = DateTime.Now,
+                End_Date = DateTime.Now.AddDays(5)
+            });
+            context.Tasks = tasks;
 
             var controller = new ProjectController(new BC.ProjectBC(context));
             var result = controller.RetrieveProjects() as JSendResponse;
@@ -52,10 +76,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 123
             });
             context.Users = users;
             var testProject = new Models.Project()
@@ -69,8 +92,8 @@ namespace ProjectManager.Test
                 NoOfTasks = 5,
                 User = new User()
                 {
-                    FirstName = "Gargi",
-                    LastName = "Pal",
+                    FirstName = "Shubhodeep",
+                    LastName = "Sen",
                     EmployeeId = "123456",
                     UserId = 123
                 }
@@ -79,7 +102,7 @@ namespace ProjectManager.Test
             var result = controller.InsertProjectDetails(testProject) as JSendResponse;
 
             Assert.IsNotNull(result);
-            Assert.IsNotNull((context.Users.Local[0]).Project_ID);
+            Assert.IsNotNull((context.Projects));
         }
 
         [TestMethod]
@@ -93,8 +116,6 @@ namespace ProjectManager.Test
                 Employee_ID = 401638.ToString(),
                 First_Name = "TEST",
                 Last_Name = "TEST2",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 123
             });
             projects.Add(new DAC.Project()
@@ -190,10 +211,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 123
             });
             context.Users = users;
             Models.Project testProject = null;
@@ -210,10 +230,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 123
             });
             context.Users = users;
             Models.Project testProject = new Models.Project()
@@ -247,10 +266,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 123
             });
             context.Users = users;
             Models.Project testProject = new Models.Project()
@@ -277,10 +295,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 123
             });
             context.Users = users;
             Models.Project testProject = new Models.Project()
@@ -314,10 +331,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 123
             });
             context.Users = users;
             Models.Project testProject = new Models.Project()
@@ -351,10 +367,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 123
             });
             context.Users = users;
             Models.Project testProject = null;
@@ -371,10 +386,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 123
             });
             context.Users = users;
             Models.Project testProject = new Models.Project()
@@ -408,10 +422,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 123
             });
             context.Users = users;
             Models.Project testProject = new Models.Project()
@@ -438,10 +451,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 123
             });
             context.Users = users;
             Models.Project testProject = new Models.Project()
@@ -475,10 +487,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 123
             });
             context.Users = users;
             Models.Project testProject = new Models.Project()
@@ -512,10 +523,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 123
             });
             context.Users = users;
             Models.Project testProject = null;
@@ -532,10 +542,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 123
             });
             context.Users = users;
             Models.Project testProject = new Models.Project()
@@ -569,10 +578,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 123
             });
             context.Users = users;
             Models.Project testProject = new Models.Project()
@@ -599,10 +607,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 123
             });
             context.Users = users;
             Models.Project testProject = new Models.Project()
@@ -636,10 +643,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 123
             });
             context.Users = users;
             Models.Project testProject = new Models.Project()

@@ -31,10 +31,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 1
             });
             context.Users = users;
             int projectid = 1234;
@@ -47,7 +46,8 @@ namespace ProjectManager.Test
                 Start_Date = DateTime.Now,
                 End_Date = DateTime.Now.AddDays(2),
                 Priority = 10,
-                Status = 0
+                Status = 0,
+                User = new DAC.User() { User_ID = 1, First_Name = "Shubhodeep" }
 
             });
             context.Tasks = tasks;
@@ -96,7 +96,6 @@ namespace ProjectManager.Test
                 First_Name = "Rajesh",
                 Last_Name = "Ray",
                 User_ID = 123,
-                Task_ID = 123
             });
             context.Users = users;
             var task = new ProjectManager.Models.Task()
@@ -124,7 +123,7 @@ namespace ProjectManager.Test
 
             Assert.IsNotNull(result);
 
-            Assert.IsNotNull((context.Users.Local[0]).Task_ID);
+            Assert.IsNotNull((context.Users.Local[0]).Employee_ID);
         }
 
         [TestMethod]
@@ -138,8 +137,6 @@ namespace ProjectManager.Test
                 Employee_ID = 401638.ToString(),
                 First_Name = "TEST",
                 Last_Name = "TEST2",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 123
             });
             tasks.Add(new DAC.Task()
@@ -167,8 +164,8 @@ namespace ProjectManager.Test
                 Status = 0,
                 User = new User()
                 {
-                    FirstName = "Gargi",
-                    LastName = "Pal",
+                    FirstName = "Shubhodeep",
+                    LastName = "Sen",
                     EmployeeId = "123456",
                     UserId = 123
                 }
@@ -235,11 +232,9 @@ namespace ProjectManager.Test
             users.Add(new DAC.User()
             {
                 Employee_ID = "401628",
-                First_Name = "Gargi",
-                Last_Name = "Pal",
+                First_Name = "Shubhodeep",
+                Last_Name = "Sen",
                 User_ID = 123,
-                Task_ID = 12345,
-                Project_ID = 1234
             });
             context.Users = users;
             tasks.Add(new DAC.Task()
@@ -251,7 +246,9 @@ namespace ProjectManager.Test
                 Priority = 1,
                 Status = 1,
                 Start_Date = DateTime.Now,
-                End_Date = DateTime.Now.AddDays(5)
+                End_Date = DateTime.Now.AddDays(5),
+                User = new DAC.User() { User_ID = 1,First_Name="Shubhodeep"}
+               
             });
             tasks.Add(new DAC.Task()
             {

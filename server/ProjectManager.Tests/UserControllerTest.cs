@@ -8,7 +8,7 @@ using System.Data.Entity;
 
 namespace ProjectManager.Test
 {
-    class MockProjectManagerEntities : DAC.ProjectManagerEntities1
+    class MockProjectManagerEntities : DAC.ProjectManagerEntities
     {
         private DbSet<DAC.User> _users = null;
         private DbSet<DAC.Project> _projects = null;
@@ -48,6 +48,11 @@ namespace ProjectManager.Test
                 _tasks = value;
             }
         }
+
+        public override int SaveChanges()
+        {
+            return 1;
+        }
     }
 
     [TestClass]
@@ -63,8 +68,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401638",
                 First_Name = "Amantrita",
                 Last_Name = "Ghosh",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 401638
             });
             users.Add(new DAC.User()
@@ -72,8 +75,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401630",
                 First_Name = "Arnabi",
                 Last_Name = "Mandal",
-                Project_ID = 1234,
-                Task_ID = 1234,
                 User_ID = 401630
             });
             context.Users = users;
@@ -113,8 +114,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401630",
                 First_Name = "Arnabi",
                 Last_Name = "Mandal",
-                Project_ID = 1234,
-                Task_ID = 1234,
                 User_ID = 401630
             });
             context.Users = users;
@@ -142,8 +141,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401638",
                 First_Name = "Amantrita",
                 Last_Name = "Ghosh",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 401638
             });
             users.Add(new DAC.User()
@@ -151,8 +148,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401630",
                 First_Name = "Arnabi",
                 Last_Name = "Mandal",
-                Project_ID = 1234,
-                Task_ID = 1234,
                 User_ID = 401630
             });
             context.Users = users;
@@ -181,8 +176,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401638",
                 First_Name = "Amantrita",
                 Last_Name = "Ghosh",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 401638
             });
             users.Add(new DAC.User()
@@ -190,8 +183,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401630",
                 First_Name = "Arnabi",
                 Last_Name = "Mandal",
-                Project_ID = 1234,
-                Task_ID = 1234,
                 User_ID = 401630
             });
             context.Users = users;
@@ -214,8 +205,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401638",
                 First_Name = "Amantrita",
                 Last_Name = "Ghosh",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 401638
             });
             users.Add(new DAC.User()
@@ -223,8 +212,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401630",
                 First_Name = "Arnabi",
                 Last_Name = "Mandal",
-                Project_ID = 1234,
-                Task_ID = 1234,
                 User_ID = 401630
             });
             context.Users = users;
@@ -247,8 +234,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401638",
                 First_Name = "Amantrita",
                 Last_Name = "Ghosh",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 401638
             });
             users.Add(new DAC.User()
@@ -256,8 +241,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401630",
                 First_Name = "Arnabi",
                 Last_Name = "Mandal",
-                Project_ID = 1234,
-                Task_ID = 1234,
                 User_ID = 401630
             });
             context.Users = users;
@@ -280,8 +263,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401638",
                 First_Name = "Amantrita",
                 Last_Name = "Ghosh",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 401638
             });
             users.Add(new DAC.User()
@@ -289,8 +270,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401630",
                 First_Name = "Arnabi",
                 Last_Name = "Mandal",
-                Project_ID = 1234,
-                Task_ID = 1234,
                 User_ID = 401630
             });
             context.Users = users;
@@ -313,8 +292,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401638",
                 First_Name = "Amantrita",
                 Last_Name = "Ghosh",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 401638
             });
             users.Add(new DAC.User()
@@ -322,8 +299,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401630",
                 First_Name = "Arnabi",
                 Last_Name = "Mandal",
-                Project_ID = 1234,
-                Task_ID = 1234,
                 User_ID = 401630
             });
             context.Users = users;
@@ -346,8 +321,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401638",
                 First_Name = "Amantrita",
                 Last_Name = "Ghosh",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 401638
             });
             users.Add(new DAC.User()
@@ -355,8 +328,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401630",
                 First_Name = "Arnabi",
                 Last_Name = "Mandal",
-                Project_ID = 1234,
-                Task_ID = 1234,
                 User_ID = 401630
             });
             context.Users = users;
@@ -379,8 +350,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401638",
                 First_Name = "Amantrita",
                 Last_Name = "Ghosh",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 401638
             });
             users.Add(new DAC.User()
@@ -388,8 +357,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401630",
                 First_Name = "Arnabi",
                 Last_Name = "Mandal",
-                Project_ID = 1234,
-                Task_ID = 1234,
                 User_ID = 401630
             });
             context.Users = users;
@@ -412,8 +379,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401638",
                 First_Name = "Amantrita",
                 Last_Name = "Ghosh",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 401638
             });
             users.Add(new DAC.User()
@@ -421,8 +386,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401630",
                 First_Name = "Arnabi",
                 Last_Name = "Mandal",
-                Project_ID = 1234,
-                Task_ID = 1234,
                 User_ID = 401630
             });
             context.Users = users;
@@ -445,8 +408,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401638",
                 First_Name = "Amantrita",
                 Last_Name = "Ghosh",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 401638
             });
             users.Add(new DAC.User()
@@ -454,8 +415,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401630",
                 First_Name = "Arnabi",
                 Last_Name = "Mandal",
-                Project_ID = 1234,
-                Task_ID = 1234,
                 User_ID = 401630
             });
             context.Users = users;
@@ -478,8 +437,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401638",
                 First_Name = "Amantrita",
                 Last_Name = "Ghosh",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 401638
             });
             users.Add(new DAC.User()
@@ -487,8 +444,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401630",
                 First_Name = "Arnabi",
                 Last_Name = "Mandal",
-                Project_ID = 1234,
-                Task_ID = 1234,
                 User_ID = 401630
             });
             context.Users = users;
@@ -511,8 +466,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401638",
                 First_Name = "Amantrita",
                 Last_Name = "Ghosh",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 401638
             });
             users.Add(new DAC.User()
@@ -520,8 +473,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401630",
                 First_Name = "Arnabi",
                 Last_Name = "Mandal",
-                Project_ID = 1234,
-                Task_ID = 1234,
                 User_ID = 401630
             });
             context.Users = users;
@@ -544,8 +495,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401638",
                 First_Name = "Amantrita",
                 Last_Name = "Ghosh",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 401638
             });
             users.Add(new DAC.User()
@@ -553,8 +502,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401630",
                 First_Name = "Arnabi",
                 Last_Name = "Mandal",
-                Project_ID = 1234,
-                Task_ID = 1234,
                 User_ID = 401630
             });
             context.Users = users;
@@ -577,8 +524,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401638",
                 First_Name = "Amantrita",
                 Last_Name = "Ghosh",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 401638
             });
             users.Add(new DAC.User()
@@ -586,8 +531,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401630",
                 First_Name = "Arnabi",
                 Last_Name = "Mandal",
-                Project_ID = 1234,
-                Task_ID = 1234,
                 User_ID = 401630
             });
             context.Users = users;
@@ -610,8 +553,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401638",
                 First_Name = "Amantrita",
                 Last_Name = "Ghosh",
-                Project_ID = 123,
-                Task_ID = 123,
                 User_ID = 401638
             });
             users.Add(new DAC.User()
@@ -619,8 +560,6 @@ namespace ProjectManager.Test
                 Employee_ID = "401630",
                 First_Name = "Arnabi",
                 Last_Name = "Mandal",
-                Project_ID = 1234,
-                Task_ID = 1234,
                 User_ID = 401630
             });
             context.Users = users;
